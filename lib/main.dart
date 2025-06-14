@@ -45,7 +45,12 @@ class _BmiState extends State<Bmi> {
                           onTap: () {
                             setState(() {
                               maleColor = Colors.white;
-                              femaleColor = Colors.grey;
+                              femaleColor = const Color.fromARGB(
+                                150,
+                                158,
+                                158,
+                                158,
+                              );
                             });
                           },
                           child: Column(
@@ -73,7 +78,13 @@ class _BmiState extends State<Bmi> {
                           onTap: () {
                             setState(() {
                               femaleColor = Colors.white;
-                              maleColor = Colors.grey;
+                              maleColor = const Color.fromARGB(
+                                150,
+                                158,
+                                158,
+                                158,
+                              );
+                              ;
                             });
                           },
                           child: Column(
