@@ -23,6 +23,7 @@ class Bmi extends StatefulWidget {
 class _BmiState extends State<Bmi> {
   Color maleColor = Colors.grey;
   Color femaleColor = Colors.grey;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _BmiState extends State<Bmi> {
               Container(
                 height: 150,
                 margin: EdgeInsets.only(bottom: 10),
-                color: Colors.grey[600],
+                color: Colors.grey[900],
                 child: Row(
                   children: [
                     Expanded(
@@ -55,6 +56,7 @@ class _BmiState extends State<Bmi> {
                                 "MALE",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  color: maleColor,
                                   fontSize: 20,
                                 ),
                               ),
@@ -66,7 +68,7 @@ class _BmiState extends State<Bmi> {
                     Expanded(
                       child: Container(
                         height: double.infinity,
-                        color: Colors.grey[600],
+                        color: Colors.grey[900],
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -82,6 +84,7 @@ class _BmiState extends State<Bmi> {
                                 "FEMALE",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  color: femaleColor,
                                   fontSize: 20,
                                 ),
                               ),
@@ -95,9 +98,57 @@ class _BmiState extends State<Bmi> {
               ),
               Expanded(
                 child: Container(
+                  padding: EdgeInsets.all(15),
                   height: 150,
+                  width: double.infinity,
                   margin: EdgeInsets.only(bottom: 10),
-                  color: Colors.grey[600],
+                  color: Colors.grey[900],
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "HEIGHT",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              height.toString(),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 55,
+                              ),
+                            ),
+                            Baseline(
+                              baseline: 50,
+                              baselineType: TextBaseline.alphabetic,
+                              child: Text("CM"),
+                            ),
+                          ],
+                        ),
+                        Slider(
+                          value: height.toDouble(),
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                          min: 120,
+                          max: 215,
+                          activeColor: Colors.blue,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               Expanded(
