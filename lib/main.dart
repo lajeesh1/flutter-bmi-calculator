@@ -155,13 +155,17 @@ class _BmiState extends State<Bmi> {
                 child: Container(
                   height: 150,
                   margin: EdgeInsets.only(bottom: 10),
-                  color: Colors.grey[600],
+                  color: Colors.grey[900],
                 ),
               ),
               Container(
                 height: 100,
                 margin: EdgeInsets.only(bottom: 10),
-                color: Colors.blue,
+
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blue,
+                ),
               ),
             ],
           ),
