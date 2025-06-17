@@ -23,6 +23,7 @@ class Bmi extends StatefulWidget {
 class _BmiState extends State<Bmi> {
   Color maleColor = Colors.grey;
   Color femaleColor = Colors.grey;
+  Color? blueColor = Colors.deepOrange[900];
   int height = 180;
 
   @override
@@ -32,19 +33,24 @@ class _BmiState extends State<Bmi> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 height: 150,
                 margin: EdgeInsets.only(bottom: 10),
-                color: Colors.grey[900],
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey[900],
+                ),
                 child: Row(
                   children: [
+                    // Male-Female section ###################################
                     Expanded(
                       child: Container(
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              maleColor = Colors.white;
+                              maleColor = blueColor!;
                               femaleColor = const Color.fromARGB(
                                 150,
                                 158,
@@ -62,7 +68,7 @@ class _BmiState extends State<Bmi> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: maleColor,
-                                  fontSize: 20,
+                                  fontSize: 14,
                                 ),
                               ),
                             ],
@@ -73,11 +79,14 @@ class _BmiState extends State<Bmi> {
                     Expanded(
                       child: Container(
                         height: double.infinity,
-                        color: Colors.grey[900],
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey[900],
+                        ),
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              femaleColor = Colors.white;
+                              femaleColor = blueColor!;
                               maleColor = const Color.fromARGB(
                                 150,
                                 158,
@@ -96,7 +105,7 @@ class _BmiState extends State<Bmi> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: femaleColor,
-                                  fontSize: 20,
+                                  fontSize: 14,
                                 ),
                               ),
                             ],
@@ -107,13 +116,17 @@ class _BmiState extends State<Bmi> {
                   ],
                 ),
               ),
+              // Height section ###################################
               Expanded(
                 child: Container(
                   padding: EdgeInsets.all(15),
                   height: 150,
                   width: double.infinity,
                   margin: EdgeInsets.only(bottom: 10),
-                  color: Colors.grey[900],
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[900],
+                  ),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -155,27 +168,165 @@ class _BmiState extends State<Bmi> {
                           },
                           min: 120,
                           max: 215,
-                          activeColor: Colors.blue,
+                          activeColor: blueColor!,
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
+              // Weight and age section ###################################
               Expanded(
                 child: Container(
                   height: 150,
                   margin: EdgeInsets.only(bottom: 10),
-                  color: Colors.grey[900],
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(1, 33, 33, 33),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(right: 5),
+
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[900],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Weight",
+
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                "0",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 55,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      shape: CircleBorder(),
+                                      padding: EdgeInsets.all(5),
+                                      backgroundColor: Colors.grey[800],
+                                    ),
+                                    child: Text(
+                                      "-",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      shape: CircleBorder(),
+                                      padding: EdgeInsets.all(5),
+                                      backgroundColor: Colors.grey[800],
+                                    ),
+                                    child: Text(
+                                      "+",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      // AGE secton ################################################
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 5),
+
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[900],
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Age",
+
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              Text(
+                                "0",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 55,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      shape: CircleBorder(),
+                                      padding: EdgeInsets.all(5),
+                                      backgroundColor: Colors.grey[800],
+                                    ),
+                                    child: Text(
+                                      "-",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      shape: CircleBorder(),
+                                      padding: EdgeInsets.all(5),
+                                      backgroundColor: Colors.grey[800],
+                                    ),
+                                    child: Text(
+                                      "+",
+                                      style: TextStyle(fontSize: 30),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
+              // Bottom button section ###################################
               Container(
-                height: 100,
+                height: 70,
                 margin: EdgeInsets.only(bottom: 10),
 
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.blue,
+                  color: blueColor!,
+                ),
+                child: Center(
+                  child: Text("Get BMI", style: TextStyle(fontSize: 25)),
                 ),
               ),
             ],
