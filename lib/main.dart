@@ -23,8 +23,10 @@ class Bmi extends StatefulWidget {
 class _BmiState extends State<Bmi> {
   Color maleColor = Colors.grey;
   Color femaleColor = Colors.grey;
-  Color? blueColor = Colors.deepOrange[900];
+  Color? blueColor = Colors.blue[600];
   int height = 180;
+  int weight = 0;
+  int age = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +95,6 @@ class _BmiState extends State<Bmi> {
                                 158,
                                 158,
                               );
-                              ;
                             });
                           },
                           child: Column(
@@ -198,7 +199,7 @@ class _BmiState extends State<Bmi> {
                           child: Column(
                             children: [
                               Text(
-                                "Weight",
+                                weight == 0 ? "Weight" : "Weight (kg)",
 
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -207,7 +208,7 @@ class _BmiState extends State<Bmi> {
                                 ),
                               ),
                               Text(
-                                "0",
+                                weight.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 55,
@@ -219,7 +220,13 @@ class _BmiState extends State<Bmi> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+                                        if (weight > 0) {
+                                          weight--;
+                                        }
+                                      });
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       shape: CircleBorder(),
                                       padding: EdgeInsets.all(5),
@@ -231,7 +238,11 @@ class _BmiState extends State<Bmi> {
                                     ),
                                   ),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+                                        weight++;
+                                      });
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       shape: CircleBorder(),
                                       padding: EdgeInsets.all(5),
@@ -271,7 +282,7 @@ class _BmiState extends State<Bmi> {
                                 ),
                               ),
                               Text(
-                                "0",
+                                age.toString(),
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 55,
@@ -283,7 +294,13 @@ class _BmiState extends State<Bmi> {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+                                        if (age > 0) {
+                                          age--;
+                                        }
+                                      });
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       shape: CircleBorder(),
                                       padding: EdgeInsets.all(5),
@@ -295,7 +312,11 @@ class _BmiState extends State<Bmi> {
                                     ),
                                   ),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      setState(() {
+                                        age++;
+                                      });
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       shape: CircleBorder(),
                                       padding: EdgeInsets.all(5),
